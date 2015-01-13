@@ -2,13 +2,14 @@ var express = require('express'),
     routes = require('routes'),
     jade = require('jade'),
     http = require('http');
-
+var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 var server = app.listen(port, function(){
-console.log("listenin");
+	console.log("listenin");
 });
 
+app.use(bodyParser);
 app.set('view engine', 'jade');
 app.get('/', function(req, res){
 	res.render('layout');
